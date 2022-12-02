@@ -9,15 +9,7 @@ import org.springframework.cache.annotation.EnableCaching;
 public class SocialMediaChallangeApplication {
 
     public static void main(String[] args) {
-        String  prefix = "";
-        for (int i = 1; i <= 6; i++) {
-            if (i == 1) {
-                System.out.println("*");
-            } else {
-                prefix += "**";
-                System.out.println(prefix);
-            }
-        }
+        SpringApplication.run(SocialMediaChallangeApplication.class, args);
     }
 
 }
