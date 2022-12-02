@@ -1,0 +1,60 @@
+1- MVC kavramını açıklar mısınız ? Neden ihtiyaç duyuluyor. Java’da nasıl kurgulanıyor.
+Object Oriented katmanları nelerdir ?
+
+- Model, view ve controller olarak sorumlulukları birbirinden ayıran bir pattern diyebiliriz. Model ksımında
+veri tabanı işlemleri, view kısmında kullanıcıya gösterilen sayfalar, controller kısmında ise kullanıcıdan gelen
+isteklerin yönetilmesi gibi işlemler yapılır. Bu sayede kodlarımızı daha düzenli ve anlaşılır hale getirmiş oluruz.
+Java’da ise bu işlemler için servletler kullanılır.
+OOP katmanları ise  Abstraction, Encapsulation, Inheritance ve Polymorphism olarak kısımlara ayrılır.
+
+2- Birbirinden bağımsız iki platformun birbiriyle haberleşmesi nasıl sağlanabilir. Örneğin, X
+   platformu Java ile yazılmış olsun, Y platform u C# ile. Bu iki platformun bir biri ile iletişim
+   halinde request-response ilişkisi kurması gerekiyor. Bu yapıyı nasıl sağlarız.
+
+- Message Queue, RestFul, Rpc gibi yöntemler kullanılabilir.
+
+3- -Bir web sayfasında ekran sürekli Backend’ den veya bir başka yapı tarafından
+   güncelleniyor. Siz, web sayfasını refresh etmeden bu güncel bilgiyi anlık ekrana nasıl
+   yansıtırsınız.
+
+- websocket kullanılabilir. Websocket ile bir bağlantı kurulur ve bu bağlantı üzerinden
+  istenilen verilerin anlık olarak gönderilmesi sağlanır.
+
+4-Bir for döngüsü ile aşağıdaki çıktıyı yazar mısınız.
+*
+**
+****
+******
+********
+**********
+    public static void main(String[] args) {
+        String  prefix = "";
+        for (int i = 1; i <= 6; i++) {
+            if (i == 1) {
+                System.out.println("*");
+            } else {
+                prefix += "**";
+                System.out.println(prefix);
+            }
+        }
+    }
+
+5- Firmada çalışman için sana remote bir linux server verildi. Elinde ip adresi port bilgisi
+kullanıcı adi ve şifren var. Server a erişimi nasıl test edersin, Server a nasıl erişirsin, Server a
+nasıl dosya atarsın, Serverdan nasıl dosya çekersin.
+
+- Server a erişimi için ssh kullanılır. Server a erişmek için ssh kullanıcı adı@ip adresi komutu
+  kullanılır. Server a dosya atmak için scp komutu kullanılır. Serverdan dosya çekmek için ise
+  scp komutu kullanılır.
+  scp gondermekIstediğimdosta NereyeGönderilecek
+  scp hostB:/path/file .
+
+7- Apache Solr servisine yazılacak bir query örneği Apache Solr kullanılan sql
+programlarından daha farklı runtime bir database. Solr a hali hazırda kayıtlı bir alan olduğunu
+düşünelim. Alanın ismi “updatedAt” long tipinde tutulan bir alan. Ben 2020 Ocak ayından
+sonraki verileri getir dediğimde solr a nasıl bir query yazılmalı. http://example?query=
+kısmını nasıl doldurmalıyım?
+
+- fq=updatedAt:[2020-01-01T00:00:00Z TO *]
+
+

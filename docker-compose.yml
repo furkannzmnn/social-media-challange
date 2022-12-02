@@ -1,0 +1,36 @@
+services:
+  mysqldb:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lib
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks:
+      - shared-net
+    volumes:
+      - ./mysql/data:/backup
+
+  social-media:
+    image: social-media
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysqldb
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/socail_media?useSSL=false&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+      - SERVER_PORT=8082
+      - spring.datasource.username=root
+      - spring.datasource.password=root
+    restart: "no"
+    networks:
+      - shared-net
+
+networks:
+    shared-net:
+        driver: bridge
